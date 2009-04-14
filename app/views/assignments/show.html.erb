@@ -1,6 +1,12 @@
 <h2><%=h @assignment.name %></h2>
 
+<p>
+  <b>Total Points:</b> <%=h @assignment.total_points %>
+</p>
+
+<h3>Questions</h3>
 <%= render :partial => 'questions/list', :locals => { :assignment => @assignment, :questions => @assignment.questions } %>
+
 
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
 <%= link_to 'Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete %> |
