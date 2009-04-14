@@ -1,23 +1,7 @@
-<p>
-  <b>Title:</b>
-  <%=h @question.title %>
-</p>
+<h3><%=h @question.title %> (<%=h @question.points %> points)</h3>
 
 <p>
-  <b>Help:</b>
   <%=h @question.help %>
 </p>
 
-<p>
-  <b>Points:</b>
-  <%=h @question.points %>
-</p>
-
-<p>
-  <b>Assignment:</b>
-  <%=h @question.assignment_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Edit', edit_assignment_question_path(@assignment, @question) %>

@@ -1,8 +1,8 @@
 module AssignmentsHelper
   def add_question_link(text, form_builder)
     link_to_function text do |page|
-      form_builder.fields_for :questions, Question.new, :child_index => 'NEW_RECORD' do |f|
-        html = render(:partial => 'question', :locals => { :form => f })
+      form_builder.fields_for :questions, Question.new, :child_index => 'NEW_RECORD' do |form|
+        html = render(:partial => 'questions/edit', :locals => { :form => form })
         page << "$('#questions').append('#{escape_javascript(html)}'.replace(/NEW_RECORD/g, new Date().getTime()));"
       end
     end

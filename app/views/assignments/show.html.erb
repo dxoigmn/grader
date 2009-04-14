@@ -1,10 +1,6 @@
-<h2><%=h @assignment.name %></h2>
+<h2><%= link_to @assignment.name, @assignment %></h2>
 
-<ul>
-<% @assignment.questions.each do |question| %>
-  <li><%= link_to question.title, question %> (<%=h question.points %> points)</li>
-<% end %>
-</ul>
+<%= render :partial => 'questions/list', :locals => { :assignment => @assignment, :questions => @assignment.questions } %>
 
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
-<%= link_to 'Back', assignments_path %>
+<%= link_to 'Add Question', new_assignment_question_path(@assignment) %>

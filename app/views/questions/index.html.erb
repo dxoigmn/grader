@@ -1,24 +1,4 @@
-<h1>Listing questions</h1>
+<%= render :partial => 'list', :locals => { :assignment => @assignment, :questions => @questions } %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Points</th>
-    <th>Assignment</th>
-  </tr>
-
-<% @questions.each do |question| %>
-  <tr>
-    <td><%=h question.title %></td>
-    <td><%=h question.points %></td>
-    <td><%=h question.assignment_id %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New question', new_question_path %>
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Add Question', new_assignment_question_path(@assignment) %>

@@ -1,28 +1,7 @@
-<h1>Editing question</h1>
-
-<% form_for(@question) do |f| %>
-  <%= f.error_messages %>
-
+<% form_for([@assignment, @question]) do |form| %>
+  <%= render :partial => 'form', :locals => { :form => form } %>
+  
   <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :help %><br />
-    <%= f.text_area :help %>
-  </p>
-  <p>
-    <%= f.label :points %><br />
-    <%= f.select :points, 1..10 %>
-  </p>
-  <p>
-    <%= f.label :assignment_id %><br />
-    <%= f.text_field :assignment_id %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
+    <%= form.submit 'Update' %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>

@@ -1,20 +1,7 @@
-<h2>Assignments</h2>
-
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
+<ul>
 <% @assignments.each do |assignment| %>
-  <tr>
-    <td><%=h assignment.name %></td>
-    <td><%= link_to 'Show', assignment %></td>
-    <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-    <td><%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li><%= link_to assignment.name, assignment %></li>
 <% end %>
-</table>
-
-<br />
+</ul>
 
 <%= link_to 'New assignment', new_assignment_path %>
