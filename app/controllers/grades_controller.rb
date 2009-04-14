@@ -8,13 +8,16 @@ class GradesController < ApplicationController
   end
   
   def get_assignment
-    @assignment = Assignment.find(params[:assignment_id])
+    @assignment = Assignment.find(params[:assignment_id]) rescue nil
   end
   
   def get_question
-    @question = Question.find(params[:question_id])
+    @question = Question.find(params[:question_id]) rescue nil
   end
 
+  def show
+    @questions = Question.all(:conditions => { :assignment_id => @assignment.id })
+  end
 
   def edit
     @grade = Grade.first(:conditions => { :student_id => @student.id, :assignment_id => @assignment.id, :question_id => @question.id })

@@ -6,7 +6,9 @@
   <b>Total Points:</b> <%=h (@student.grade(@assignment).to_s + ' / ') rescue nil %><%=h @assignment.total_points %>
 </p>
 
-<% unless @student %>
+<% if @student %>
+<%= link_to 'Grading Sheet', student_assignment_grade_path(@student, @assignment) %>
+<% else %>
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
 <%= link_to 'Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete %> |
 <%= link_to 'Add Question', new_assignment_question_path(@assignment) %>

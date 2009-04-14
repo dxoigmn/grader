@@ -7,8 +7,10 @@
 <body>
 <h1><%= link_to @student.name, @student %></h1>
 <h2><%= link_to @assignment.name,  [@student, @assignment] %></h2>
+<% if @question %>
 <h3><%= @question.title %></h3>
 <p><%= @question.help %></p>
+<% end %>
 <p style="color: green"><%= flash[:notice] %></p>
 <%= yield %>
 </body>

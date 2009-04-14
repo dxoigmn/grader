@@ -1,10 +1,14 @@
-<p>
-  <b>Value:</b>
-  <%=h @grade.value rescue nil %>
-</p>
+<% @questions.each do |question| %>
+<h3><%=h question.title %></h3>
+
+<blockquote>
+  <%=h question.help %>
+</blockquote>
+
+<%=h @student.grade(question) %> / <%=h question.points %>
+
+<% end %>
 
 <p>
-  <b>Comment:</b>
-  <%=h @grade.comment rescue nil %>
+  <b>Total Points:</b> <%=h (@student.grade(@assignment).to_s + ' / ') rescue nil %><%=h @assignment.total_points %>
 </p>
-
