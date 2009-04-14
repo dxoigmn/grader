@@ -4,11 +4,13 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :students do |students|
-    students.resources :assignments, :only => :show do |assignments|
+    students.resources :assignments, :only => :show, :member => { :email => :get } do |assignments|
       assignments.resource :grade, :only => :show
       assignments.resources :questions, :only => :none do |questions|
         questions.resource :grade, :only => [:edit, :update, :create]
       end
     end
   end
+  
+  map.root :students
 end
