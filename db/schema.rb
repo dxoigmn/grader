@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(:version => 20090414063514) do
   end
 
   create_table "grades", :force => true do |t|
-    t.integer  "question_id"
     t.integer  "student_id"
+    t.integer  "assignment_id"
+    t.integer  "question_id"
     t.integer  "value"
     t.text     "comment"
     t.datetime "created_at"

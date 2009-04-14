@@ -1,51 +1,36 @@
 class GradesController < ApplicationController
-  # GET /grades
-  # GET /grades.xml
-  def index
-    @grades = Grade.all
+  before_filter :get_student
+  before_filter :get_assignment
+  before_filter :get_question
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @grades }
-    end
+  def get_student
+    @student = Student.find(params[:student_id]) rescue nil
+  end
+  
+  def get_assignment
+    @assignment = Assignment.find(params[:assignment_id])
+  end
+  
+  def get_question
+    @question = Question.find(params[:question_id])
   end
 
-  # GET /grades/1
-  # GET /grades/1.xml
-  def show
-    @grade = Grade.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @grade }
-    end
-  end
-
-  # GET /grades/new
-  # GET /grades/new.xml
-  def new
-    @grade = Grade.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @grade }
-    end
-  end
-
-  # GET /grades/1/edit
   def edit
-    @grade = Grade.find(params[:id])
+    @grade = Grade.first(:conditions => { :student_id => @student.id, :assignment_id => @assignment.id, :question_id => @question.id })
+    @grade ||= Grade.new
   end
 
-  # POST /grades
-  # POST /grades.xml
   def create
     @grade = Grade.new(params[:grade])
+    @grade.student    = @student
+    @grade.assignment = @assignment
+    @grade.question   = @question
 
     respond_to do |format|
       if @grade.save
         flash[:notice] = 'Grade was successfully created.'
-        format.html { redirect_to(@grade) }
+        format.html { redirect_to([@student, @assignment]) }
         format.xml  { render :xml => @grade, :status => :created, :location => @grade }
       else
         format.html { render :action => "new" }
@@ -54,32 +39,18 @@ class GradesController < ApplicationController
     end
   end
 
-  # PUT /grades/1
-  # PUT /grades/1.xml
   def update
-    @grade = Grade.find(params[:id])
+    @grade = Grade.first(:conditions => { :student_id => @student.id, :assignment_id => @assignment.id, :question_id => @question.id })
 
     respond_to do |format|
       if @grade.update_attributes(params[:grade])
         flash[:notice] = 'Grade was successfully updated.'
-        format.html { redirect_to(@grade) }
+        format.html { redirect_to([@student, @assignment]) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @grade.errors, :status => :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /grades/1
-  # DELETE /grades/1.xml
-  def destroy
-    @grade = Grade.find(params[:id])
-    @grade.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(grades_url) }
-      format.xml  { head :ok }
     end
   end
 end

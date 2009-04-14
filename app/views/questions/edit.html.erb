@@ -1,6 +1,6 @@
 <h3><%= link_to @question.title, [@assignment, @question] %></h3>
 
-<% form_for([@assignment, @question]) do |form| %>
+<% form_for([@student, @assignment, @question]) do |form| %>
   <%= render :partial => 'questions/form', :locals => { :form => form } %>
   
   <p>

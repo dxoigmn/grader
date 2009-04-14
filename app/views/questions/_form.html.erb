@@ -1,6 +1,25 @@
 <div class="question">
   <%= form.error_messages %>
   
+  <% if @student %>
+  <table>
+    <tr>
+    <% (1..@question.points).each do |value| %>
+      <td><%= form.label "value_#{value}", value %></td>
+    <% end %>
+    </tr>
+    <tr>
+    <% (1..@question.points).each do |value| %>
+      <td><%= form.radio_button :value, value %></td>
+    <% end %>
+    </tr>
+  </table>
+  
+  <p>
+    <%= form.label :comment %><br />
+    <%= form.text_area :comment, :rows => 5 %>
+  </p>
+  <% else %>
   <p>
     <%= form.label :title %><br />
     <%= form.text_field :title %>
@@ -13,4 +32,5 @@
     <%= form.label :help %><br />
     <%= form.text_area :help, :rows => 5 %>
   </p>
+  <% end %>
 </div>

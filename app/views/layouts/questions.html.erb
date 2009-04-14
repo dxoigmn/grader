@@ -5,8 +5,12 @@
   <title>Assignments</title>
 </head>
 <body>
+<% if @student %>
+<h1><%= link_to @student.name, @student %></h1>
+<% else %>
 <h1><%= link_to 'Assignments', assignments_path %></h1>
-<h2><%= link_to @assignment.name,  @assignment %></h2>
+<% end %>
+<h2><%= link_to @assignment.name,  [@student, @assignment] %></h2>
 <p style="color: green"><%= flash[:notice] %></p>
 <%= yield %>
 </body>

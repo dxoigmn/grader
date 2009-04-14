@@ -1,13 +1,13 @@
 <h2><%=h @assignment.name %></h2>
+<h3>Questions</h3>
+<%= render :partial => 'questions/list', :locals => { :assignment => @assignment, :questions => @assignment.questions, :student => @student } %>
 
 <p>
-  <b>Total Points:</b> <%=h @assignment.total_points %>
+  <b>Total Points:</b> <%=h (@student.grade(@assignment).to_s + ' / ') rescue nil %><%=h @assignment.total_points %>
 </p>
 
-<h3>Questions</h3>
-<%= render :partial => 'questions/list', :locals => { :assignment => @assignment, :questions => @assignment.questions } %>
-
-
+<% unless @student %>
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
 <%= link_to 'Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete %> |
 <%= link_to 'Add Question', new_assignment_question_path(@assignment) %>
+<% end %>

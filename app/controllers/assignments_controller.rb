@@ -1,4 +1,10 @@
 class AssignmentsController < ApplicationController
+  before_filter :get_student
+
+  def get_student
+    @student = Student.find(params[:student_id]) rescue nil
+  end
+  
   def index
     @assignments = Assignment.all
 
