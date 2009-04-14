@@ -1,14 +1,16 @@
 <% @questions.each do |question| %>
 <h3><%=h question.title %></h3>
 
-<blockquote>
-  <%=h question.help %>
-</blockquote>
+<blockquote><%=h question.help %></blockquote>
 
-<%=h @student.grade(question) %> / <%=h question.points %>
+<p>
+  <b>Points:</b> <%=h @student.grade(question) %>/<%=h question.points %> <% unless @student.comment(question).blank? %><%=h @student.comment(question) %><% end %>
+</p>
 
 <% end %>
 
+<hr />
+
 <p>
-  <b>Total Points:</b> <%=h (@student.grade(@assignment).to_s + ' / ') rescue nil %><%=h @assignment.total_points %>
+  <b>Total Points:</b> <%=h @student.grade(@assignment) %> / <%=h @assignment.total_points %>
 </p>

@@ -11,6 +11,6 @@ class Student < ActiveRecord::Base
   end
   
   def comment(question)
-    grades.first(:conditions => { :question => question }).comment rescue ''
+    grades.first(:conditions => { :question_id => question.id }).comment rescue ''
   end
 end
