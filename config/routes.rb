@@ -4,5 +4,4 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :students
-  map.resources :grades
 end

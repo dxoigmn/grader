@@ -1,6 +1,4 @@
 class StudentsController < ApplicationController
-  # GET /students
-  # GET /students.xml
   def index
     @students = Student.all
 
@@ -10,10 +8,9 @@ class StudentsController < ApplicationController
     end
   end
 
-  # GET /students/1
-  # GET /students/1.xml
   def show
     @student = Student.find(params[:id])
+    @assignments = Assignment.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -21,8 +18,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  # GET /students/new
-  # GET /students/new.xml
   def new
     @student = Student.new
 
@@ -32,13 +27,10 @@ class StudentsController < ApplicationController
     end
   end
 
-  # GET /students/1/edit
   def edit
     @student = Student.find(params[:id])
   end
 
-  # POST /students
-  # POST /students.xml
   def create
     @student = Student.new(params[:student])
 
@@ -54,8 +46,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  # PUT /students/1
-  # PUT /students/1.xml
   def update
     @student = Student.find(params[:id])
 
@@ -71,8 +61,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  # DELETE /students/1
-  # DELETE /students/1.xml
   def destroy
     @student = Student.find(params[:id])
     @student.destroy
