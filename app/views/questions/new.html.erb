@@ -1,7 +1,7 @@
 <h3>New question</h3>
 
 <% form_for [@assignment, @question] do |form| %>
-  <%= render :partial => 'form', :locals => { :form => form } %>
+  <%= render :partial => 'questions/form', :locals => { :form => form } %>
   
   <p>
     <%= form.submit 'Create' %>

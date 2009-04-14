@@ -1,6 +1,4 @@
 class AssignmentsController < ApplicationController
-  # GET /assignments
-  # GET /assignments.xml
   def index
     @assignments = Assignment.all
 
@@ -10,8 +8,6 @@ class AssignmentsController < ApplicationController
     end
   end
 
-  # GET /assignments/1
-  # GET /assignments/1.xml
   def show
     @assignment = Assignment.find(params[:id])
 
@@ -21,8 +17,6 @@ class AssignmentsController < ApplicationController
     end
   end
 
-  # GET /assignments/new
-  # GET /assignments/new.xml
   def new
     @assignment = Assignment.new
 
@@ -32,13 +26,10 @@ class AssignmentsController < ApplicationController
     end
   end
 
-  # GET /assignments/1/edit
   def edit
     @assignment = Assignment.find(params[:id])
   end
 
-  # POST /assignments
-  # POST /assignments.xml
   def create
     @assignment = Assignment.new(params[:assignment])
 
@@ -54,8 +45,6 @@ class AssignmentsController < ApplicationController
     end
   end
 
-  # PUT /assignments/1
-  # PUT /assignments/1.xml
   def update
     @assignment = Assignment.find(params[:id])
 
@@ -71,8 +60,6 @@ class AssignmentsController < ApplicationController
     end
   end
 
-  # DELETE /assignments/1
-  # DELETE /assignments/1.xml
   def destroy
     @assignment = Assignment.find(params[:id])
     @assignment.destroy

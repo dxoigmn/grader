@@ -1,13 +1,6 @@
-<% form_for(@assignment) do |assignment_form| %>
-<div id="assignment">
-  <%= assignment_form.error_messages %>
-  
-  <p>
-    <%= assignment_form.label :name %><br />
-    <%= assignment_form.text_field :name %>
-  </p>
-</div>
+<h2><%= link_to @assignment.name, @assignment %></h2>
 
-<p><%= assignment_form.submit 'Update' %></p>
-
+<% form_for(@assignment) do |form| %>
+  <%= render :partial => 'assignments/form', :locals => { :form => form } %>
+  <p><%= form.submit 'Update' %></p>
 <% end %>
