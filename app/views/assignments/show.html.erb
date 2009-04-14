@@ -1,0 +1,10 @@
+<h2><%=h @assignment.name %></h2>
+
+<ul>
+<% @assignment.questions.each do |question| %>
+  <li><%= link_to question.title, question %> (<%=h question.points %> points)</li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

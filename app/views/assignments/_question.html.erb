@@ -1,0 +1,22 @@
+<div class="question">
+  <%= form.error_messages %>
+  
+  <p>
+    <%= form.label :title %><br />
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :help %><br />
+    <%= form.text_area :help, :rows => 5 %>
+  </p>
+  <p>
+    <%= form.label :points %><br />
+    <%= form.select :points, 1..10 %>
+  </p>
+  
+  <% unless form.object.new_record? %>
+    <%= remove_question_link(form) %>
+  <% end %>
+  
+  <hr />
+</div>

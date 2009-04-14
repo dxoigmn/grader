@@ -1,0 +1,23 @@
+<p>
+  <b>Question:</b>
+  <%=h @grade.question_id %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%=h @grade.student_id %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @grade.value %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @grade.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_grade_path(@grade) %> |
+<%= link_to 'Back', grades_path %>

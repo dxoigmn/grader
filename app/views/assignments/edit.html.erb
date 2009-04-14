@@ -1,0 +1,28 @@
+<h1>Editing assignment</h1>
+
+<% form_for(@assignment) do |assignment_form| %>
+<div id="assignment">
+  <%= assignment_form.error_messages %>
+  
+  <p>
+    <%= assignment_form.label :name %><br />
+    <%= assignment_form.text_field :name %>
+  </p>
+</div>
+
+<h2>Questions</h2>
+<div id="questions">
+<% assignment_form.fields_for :questions do |question_form| %>
+  <%= render :partial => 'question', :locals => { :form => question_form } %>
+<% end %>
+</div>
+
+<p><%= add_question_link('Add Question', assignment_form) %></p>
+
+  
+<p><%= assignment_form.submit 'Update' %></p>
+
+<% end %>
+
+<%= link_to 'Show', @assignment %> |
+<%= link_to 'Back', assignments_path %>

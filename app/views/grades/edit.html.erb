@@ -1,0 +1,28 @@
+<h1>Editing grade</h1>
+
+<% form_for(@grade) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :question_id %><br />
+    <%= f.text_field :question_id %>
+  </p>
+  <p>
+    <%= f.label :student_id %><br />
+    <%= f.text_field :student_id %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @grade %> |
+<%= link_to 'Back', grades_path %>
