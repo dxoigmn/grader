@@ -2,4 +2,4 @@
 %h3= link_to(@assignment.name, @assignment)
 %h4= 'New Question'
 
-= render('questions/form', :student => @student, :assignment => @assignment, :question => @question)
+= render('questions/form', :assignment => @assignment, :question => @question)

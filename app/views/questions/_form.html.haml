@@ -1,22 +1,8 @@
-- form_for([student, assignment, question]) do |form|
+- form_for([assignment, question]) do |form|
   
   .errors= form.error_messages
   
   %dl.form
-  
-  - if student
-    %table
-      %tr
-        - (1..question.points).each do |value|
-          %td= form.label("value_#{value}", value)
-      %tr
-        - (1..question.points).each do |value|
-          %td= form.radio_button(:value, value)
-    
-    %dt= form.label(:comment)
-    %dd= form.text_area(:comment, :rows => 5)
-    
-  - else
     %dt= form.label(:title)
     %dd= form.text_field(:title)
     
