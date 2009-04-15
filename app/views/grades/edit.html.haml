@@ -1,0 +1,8 @@
+%h2= link_to('Students', students_path)
+%h3= link_to(@student.name, @student)
+%h4= link_to(@assignment.name,  [@student, @assignment])
+%h5=h @question.title
+
+.help=h @question.help
+
+= render('grades/form', :student => @student, :assignment => @assignment, :question => @question, :grade => @grade)

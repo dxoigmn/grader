@@ -1,0 +1,21 @@
+%h2= link_to('Students', students_path)
+%h3= link_to(@student.name, @student)
+%h4= link_to(@assignment.name,  [@student, @assignment])
+
+- @assignment.questions.each do |question|
+  %h5=h question.title
+  .help=h question.help
+  
+  %dl
+    %dt= 'Points'
+    %dd= @student.formatted_grade(question)
+    
+    %dt= 'Comments'
+    %dd= @student.comment(question)
+
+%hr
+
+%dl
+  %dt= 'Total Points'
+  %dd= @student.formatted_grade(@assignment)
+

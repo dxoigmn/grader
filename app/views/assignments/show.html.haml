@@ -1,6 +1,11 @@
-%h2= @student ? link_to(@student.name, @student) : link_to('Assignments', assignments_path)
-
-%h3=h @assignment.name
+- if @student
+  %h2= link_to('Students', students_path)
+  %h3= link_to(@student.name, @student)
+  %h4=h @assignment.name
+  
+- else
+  %h2= link_to('Assignments', assignments_path)
+  %h3=h @assignment.name
 
 %dl
   %dt= 'Total Points'

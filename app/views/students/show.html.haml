@@ -1,11 +1,12 @@
-%h2=h @student.name
+%h2= link_to('Students', students_path)
+%h3=h @student.name
 
 %dl
   %dt= "Email:"
   %dd= mail_to(@student.email)
 
 
-%h3= 'Assignments'
+%h4= 'Assignments'
 
 %ul
   - @assignments.each do |assignment|
