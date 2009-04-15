@@ -1,0 +1,12 @@
+- form_for(student) do |form|
+  
+  .errors= form.error_messages
+  
+  %dl.form
+    %dt= form.label(:name)
+    %dd= form.text_field(:name)
+    
+    %dt= form.label(:email)
+    %dd= form.text_field(:email)
+    
+  = form.submit(student.new_record? ? 'Create' : 'Update')

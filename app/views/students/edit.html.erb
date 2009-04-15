@@ -1,6 +1,0 @@
-<h2><%= link_to @student.name, @student %></h2>
-
-<% form_for(@student) do |form| %>
-  <%= render :partial => 'students/form', :locals => { :form => form } %>
-  <p><%= form.submit 'Update' %></p>
-<% end %>

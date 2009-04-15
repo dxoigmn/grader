@@ -1,6 +1,10 @@
 class Student < ActiveRecord::Base
   has_many :grades
   
+  def formatted_grade(obj)
+    "#{grade(obj)}/#{obj.points}"
+  end
+  
   def grade(obj)
     case obj
     when Assignment

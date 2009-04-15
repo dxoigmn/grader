@@ -3,7 +3,7 @@
 <%= render :partial => 'questions/list', :locals => { :assignment => @assignment, :questions => @assignment.questions, :student => @student } %>
 
 <p>
-  <b>Total Points:</b> <%=h (@student.grade(@assignment).to_s + ' / ') rescue nil %><%=h @assignment.total_points %>
+  <b>Total Points:</b> <%=h @student.formatted_grade(@assignment) %>
 </p>
 
 <% if @student %>

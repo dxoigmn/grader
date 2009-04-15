@@ -1,0 +1,5 @@
+%ul
+  - @students.each do |student|
+    %li= link_to student.name, student
+
+=link_to 'Add Student', new_student_path
