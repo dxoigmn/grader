@@ -1,0 +1,29 @@
+- form_for([student, assignment, question]) do |form|
+  
+  .errors= form.error_messages
+  
+  %dl.form
+  
+  - if student
+    %table
+      %tr
+        - (1..question.points).each do |value|
+          %td= form.label("value_#{value}", value)
+      %tr
+        - (1..question.points).each do |value|
+          %td= form.radio_button(:value, value)
+    
+    %dt= form.label(:comment)
+    %dd= form.text_area(:comment, :rows => 5)
+    
+  - else
+    %dt= form.label(:title)
+    %dd= form.text_field(:title)
+    
+    %dt= form.label(:points)
+    %dd= form.select(:points, 1..10)
+    
+    %dt= form.label(:help)
+    %dd= form.text_area(:help, :rows => 5)
+
+  = form.submit(question.new_record? ? 'Create' : 'Update')

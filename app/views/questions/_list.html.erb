@@ -1,9 +1,0 @@
-<ul>
-<% questions.each do |question| %>
-  <% if student %>
-  <li><%= link_to question.title, edit_student_assignment_question_grade_path(student, assignment, question) %> (<%=h student.grade(question) %> / <%=h question.points %> points)</li>  
-  <% else %>
-  <li><%= link_to question.title, [student, assignment, question] %> (<%=h question.points %> points)</li>
-  <% end %>
-<% end %>
-</ul>

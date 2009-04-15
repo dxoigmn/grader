@@ -1,9 +1,0 @@
-<h3><%=h @question.title %></h3>
-<h4><%=h @question.points %> points</h4>
-
-<p>
-  <%=h @question.help %>
-</p>
-
-<%= link_to 'Edit', edit_assignment_question_path(@assignment, @question) %> |
-<%= link_to 'Delete', assignment_question_path(@assignment, @question), :confirm => 'Are you sure?', :method => :delete %>
