@@ -1,0 +1,9 @@
+- form_for(assignment) do |form|
+  
+  .errors= form.error_messages
+  
+  %dl.form
+    %dt= form.label(:name)
+    %dd= form.text_field(:name)
+    
+  = form.submit(assignment.new_record? ? 'Create' : 'Update')

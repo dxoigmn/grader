@@ -1,0 +1,7 @@
+%h2= 'Assignments'
+
+%ul
+  - @assignments.each do |assignment|
+    %li= link_to(assignment.name, assignment)
+
+= link_to('Add Assignment', new_assignment_path)

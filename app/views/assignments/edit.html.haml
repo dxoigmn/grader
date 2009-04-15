@@ -1,0 +1,4 @@
+%h2= link_to('Assignments', assignments_path)
+%h3= link_to(@assignment.name, @assignment)
+
+= render('assignments/form', :assignment => @assignment)

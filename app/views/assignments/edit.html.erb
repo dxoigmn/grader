@@ -1,6 +1,0 @@
-<h2><%= link_to @assignment.name, @assignment %></h2>
-
-<% form_for(@assignment) do |form| %>
-  <%= render :partial => 'assignments/form', :locals => { :form => form } %>
-  <p><%= form.submit 'Update' %></p>
-<% end %>

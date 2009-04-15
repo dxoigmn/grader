@@ -1,0 +1,19 @@
+%h2= @student ? link_to(@student.name, @student) : link_to('Assignments', assignments_path)
+
+%h3=h @assignment.name
+
+%dl
+  %dt= 'Total Points'
+  %dd=h @student ? @student.formatted_grade(@assignment) : @assignment.points
+  
+%h4= 'Questions'
+= render('questions/list', :student => @student, :assignment => @assignment, :questions => @assignment.questions)
+
+- if @student
+  = link_to('Grading Sheet', student_assignment_grade_path(@student, @assignment))
+  = link_to('Send Email', email_student_assignment_grade_path(@student, @assignment))
+
+- else
+  = link_to('Edit', edit_assignment_path(@assignment))
+  = link_to('Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete)
+  = link_to('Add Question', new_assignment_question_path(@assignment))
