@@ -75,16 +75,4 @@ class AssignmentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  def email
-    @assignment = Assignment.find(params[:id])
-    
-    Notifications.deliver_grade_email(@student, @assignment) if @student && @assignment
-    
-    respond_to do |format|
-      flash[:notice] = 'Email was successfully sent.'
-      format.html { redirect_to([@student, @assignment]) }
-      format.xml  { head :ok }
-    end
-  end
 end

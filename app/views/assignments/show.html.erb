@@ -8,7 +8,7 @@
 
 <% if @student %>
 <%= link_to 'Grading Sheet', student_assignment_grade_path(@student, @assignment) %> |
-<%= link_to 'Send Email', email_student_assignment_path(@student, @assignment) %>
+<%= link_to 'Send Email', email_student_assignment_grade_path(@student, @assignment) %>
 <% else %>
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
 <%= link_to 'Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete %> |

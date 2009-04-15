@@ -16,7 +16,7 @@ class GradesController < ApplicationController
   end
 
   def show
-    @questions = Question.all(:conditions => { :assignment_id => @assignment.id })
+    
   end
 
   def edit
@@ -54,6 +54,19 @@ class GradesController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @grade.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+  
+  
+  def email
+    @gradesheet = render_to_pdf(:show)
+    
+    Notifications.deliver_grade_email(@student, @assignment, @gradesheet) if @student && @assignment
+    
+    respond_to do |format|
+      flash[:notice] = 'Email was successfully sent.'
+      format.html { redirect_to([@student, @assignment]) }
+      format.xml  { head :ok }
     end
   end
 end
