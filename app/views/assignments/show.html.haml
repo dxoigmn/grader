@@ -1,24 +1,30 @@
-- if @student
-  %h2= link_to('Students', students_path)
-  %h3= link_to(@student.name, @student)
-  %h4=h @assignment.name
+.section
+  .header
+    - if @student
+      %h2= link_to(@student.name, @student)
+      %h3=h @assignment.name
   
-- else
-  %h2= link_to('Assignments', assignments_path)
-  %h3=h @assignment.name
-
-%dl
-  %dt= 'Total Points'
-  %dd=h @student ? @student.formatted_grade(@assignment) : @assignment.points
+    - else
+      %h2=h @assignment.name
   
-%h4= 'Questions'
-= render('questions/list', :student => @student, :assignment => @assignment, :questions => @assignment.questions)
+  .content
+    %dl
+      %dt= 'Total Points'
+      %dd=h @student ? @student.formatted_grade(@assignment) : @assignment.points
 
-- if @student
-  = link_to('Grading Sheet', student_assignment_grade_path(@student, @assignment))
-  = link_to('Send Email', email_student_assignment_grade_path(@student, @assignment))
+.section
+  .header
+    %h3= 'Questions'
 
-- else
-  = link_to('Edit', edit_assignment_path(@assignment))
-  = link_to('Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete)
-  = link_to('Add Question', new_assignment_question_path(@assignment))
+  .content
+    = render('questions/list', :student => @student, :assignment => @assignment, :questions => @assignment.questions)
+
+  .footer
+    - if @student
+      = link_to('Grading Sheet', student_assignment_grade_path(@student, @assignment))
+      = link_to('Send Email', email_student_assignment_grade_path(@student, @assignment))
+
+    - else
+      = link_to('Edit', edit_assignment_path(@assignment))
+      = link_to('Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete)
+      = link_to('Add Question', new_assignment_question_path(@assignment))

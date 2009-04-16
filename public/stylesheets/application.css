@@ -1,0 +1,127 @@
+html {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  background-color: #e0e0e0;
+}
+
+#header {
+  padding: 0 1em 0 1em;
+  background-color: #7a1818;
+}
+
+#header h1 {
+  font-size: xx-large;
+  color: #ffffff;
+  padding: 0.5em 0 0.5em 0;
+}
+
+#nav {
+  background-color: #262626;
+}
+
+#nav ul {
+  list-style-type: none;
+  padding: 0.5em 0 0.5em 0;
+}
+
+#nav ul li {
+  display: inline;
+  color: #ffffff;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: medium;
+}
+
+#nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+#nav ul li.active {
+  background-color: #e0e0e0;
+}
+
+#nav ul li.active a {
+  color: #000000;
+}
+
+#article {
+  margin: 1em;
+  padding: 1em;
+  background-color: #ffffff;
+}
+
+#article .section:first-child {
+  margin-top: 0;
+}
+
+#article .section {
+  margin: 1em 0 1em 0;
+}
+
+#article .section:last-child {
+  margin-bottom: 0;
+}
+
+#article .section .header {
+  margin-bottom: 1em;
+}
+
+#article .section .footer {
+  margin-top: 1em;
+}
+
+#article h2 {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#article h3 {
+  font-size: large;
+  font-weight: bold;
+}
+
+#article h4 {
+  font-size: medium;
+  font-weight: bold;
+}
+
+#article h5 {
+  font-size: small;
+  font-weight: bold;
+}
+
+#article a {
+  color: #7a1818;
+  text-decoration: none;
+}
+
+#article .section .content ul {
+  margin-left: 1em;
+}
+
+#article .section .content ul li {
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+#article .section .content dl {
+  margin: 1em 0 1em 0;
+}
+
+#article .section .content dt {
+  font-weight: bold;
+  margin: 1em 0 0.25em 0;
+}
+
+#article .section .content p {
+  margin: 1em 0 1em 0;
+}
+
+#article .section .content td {
+  padding: 0 0.2em 0 0.2em;
+  text-align: center;
+}
+
+#article .section .content hr {
+  border: 1px solid #e0e0e0;
+}

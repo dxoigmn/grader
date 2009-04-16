@@ -1,4 +1,6 @@
-%h2= link_to('Students', students_path)
-%h3= link_to(@student.name, @student)
+.section
+  .header
+    %h2= link_to(@student.name, @student)
 
-= render('students/form', :student => @student )
+  .content
+    = render('students/form', :student => @student )

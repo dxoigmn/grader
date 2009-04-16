@@ -1,5 +1,7 @@
-%h2= link_to('Assignments', assignments_path)
-%h3= link_to(@assignment.name, @assignment)
-%h4= 'New Question'
-
-= render('questions/form', :assignment => @assignment, :question => @question)
+.section
+  .header
+    %h2= link_to(@assignment.name, @assignment)
+    %h3= 'New Question'
+  
+  .content
+    = render('questions/form', :assignment => @assignment, :question => @question)

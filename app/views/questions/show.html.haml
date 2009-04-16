@@ -1,13 +1,16 @@
-%h2= link_to('Assignments', assignments_path)
-%h3= link_to(@assignment.name, @assignment)
-%h4=h @question.title
-
-%dl
-  %dt= 'Points'
-  %dd=h @question.points
+.section
+  .header
+    %h2= link_to(@assignment.name, @assignment)
+    %h3=h @question.title
   
-  %dt= 'Help'
-  %dd=h @question.help
+  .content
+    %dl
+      %dt= 'Points'
+      %dd=h @question.points
+  
+      %dt= 'Help'
+      %dd=h @question.help
 
-= link_to('Edit', edit_assignment_question_path(@assignment, @question))
-= link_to('Delete', assignment_question_path(@assignment, @question), :confirm => 'Are you sure?', :method => :delete)
+  .footer
+    = link_to('Edit', edit_assignment_question_path(@assignment, @question))
+    = link_to('Delete', assignment_question_path(@assignment, @question), :confirm => 'Are you sure?', :method => :delete)

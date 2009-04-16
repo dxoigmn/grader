@@ -4,19 +4,17 @@
   %head
     %meta{ :'http-equiv' => 'content-type', :content => 'text/html;charset=UTF-8' }
     %title= 'Grader'
-    - #%link{ :href => '/stylesheets/reset.css', :media => 'screen', :rel => 'stylesheet', :type => 'text/css' }
-    - #= stylesheets
+    = stylesheet_link_tag('http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css')
+    = stylesheet_link_tag('application', :media => 'all')
+    = stylesheet_link_tag('print', :media => 'print')
   %body
     #header
       %h1= 'Grader'
 
-    #nav
-      %ul
-        = nav_link(:students)
-        = nav_link(:assignments)
-
-    - for key, value in flash
-      .flash{ :id=> key }= value
+      #nav
+        %ul
+          = nav_link(:students)
+          = nav_link(:assignments)
 
     #article
       = yield

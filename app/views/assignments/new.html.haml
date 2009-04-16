@@ -1,3 +1,6 @@
-%h2= link_to('Assignments', assignments_path)
-
-= render('assignments/form', :assignment => @assignment)
+.section
+  .header
+    %h2= link_to('Assignments', assignments_path)
+  
+  .content
+    = render('assignments/form', :assignment => @assignment)
