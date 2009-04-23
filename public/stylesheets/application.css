@@ -181,6 +181,24 @@ html {
   border: 1px solid #e0e0e0;
 }
 
+#article .section .content table tr td:first-child {
+  text-align: left;
+  width: 15em;
+}
+
+#article .section .content table tr td {
+  padding: 0.5em;
+  text-align: center;
+  width: 5em;
+}
+
+#article .section .content table thead tr td {
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #333333;
+  font-size: 0.75em;
+}
+
 div.help {
   margin: 0.5em 0 0.5em 0;
 }

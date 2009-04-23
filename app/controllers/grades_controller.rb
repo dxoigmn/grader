@@ -1,4 +1,14 @@
 class GradesController < ApplicationController
+  def index
+    @students     = Student.all(:order => 'name')
+    @assignments  = Assignment.all(:order => 'id')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @criteria }
+    end
+  end
+  
   def show
     @grade = Grade.find(params[:id], :include => { :marks => :criterion }, :order => 'criteria.id')
     
