@@ -12,6 +12,27 @@
       %dt= 'Total Points'
       %dd=h @student ? @student.formatted_grade(@assignment) : @assignment.points
 
+      - unless @student
+        %dt= 'Maximum Grade'
+        %dd= @grade_statistics.max
+
+        %dt= 'Median Grade'
+        %dd= @grade_statistics.median
+
+        %dt= 'Minimum Grade'
+        %dd= @grade_statistics.min
+
+        %dt= 'Mean Grade'
+        %dd= @grade_statistics.mean
+
+        %dt= 'Grade Standard Deviation'
+        %dd= @grade_statistics.stddev
+      
+  .footer
+    %ul
+      %li= link_to('Edit', edit_assignment_path(@assignment))
+      %li= link_to('Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete)
+
 .section
   .header
     %h3= 'Questions'
@@ -20,11 +41,19 @@
     = render('questions/list', :student => @student, :assignment => @assignment, :questions => @assignment.questions)
 
   .footer
-    - if @student
-      = link_to('Grading Sheet', student_assignment_grade_path(@student, @assignment))
-      = link_to('Send Email', email_student_assignment_grade_path(@student, @assignment))
+    %ul
+      %li= link_to('Add Question', new_assignment_question_path(@assignment))
 
-    - else
-      = link_to('Edit', edit_assignment_path(@assignment))
-      = link_to('Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete)
-      = link_to('Add Question', new_assignment_question_path(@assignment))
+      - if @student
+        %li= link_to('Grading Sheet', student_assignment_grade_path(@student, @assignment))
+        %li= link_to('Send Email', email_student_assignment_grade_path(@student, @assignment), :confirm => 'Are you sure?')
+
+- unless @student
+  .section
+    .header
+      %h3= 'Student Grades'
+    
+    .content
+      %ul
+        - @assignment.students.each do |student|
+          %li= link_to(student.name, student_assignment_path(student, @assignment)) + " (#{student.grade(@assignment)} points)"

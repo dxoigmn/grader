@@ -12,5 +12,6 @@
       %dd=h @question.help
 
   .footer
-    = link_to('Edit', edit_assignment_question_path(@assignment, @question))
-    = link_to('Delete', assignment_question_path(@assignment, @question), :confirm => 'Are you sure?', :method => :delete)
+    %ul
+      %li= link_to('Edit', edit_assignment_question_path(@assignment, @question))
+      %li= link_to('Delete', assignment_question_path(@assignment, @question), :confirm => 'Are you sure?', :method => :delete)

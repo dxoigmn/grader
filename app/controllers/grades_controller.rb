@@ -16,7 +16,10 @@ class GradesController < ApplicationController
   end
 
   def show
-    
+    respond_to do |format|
+      format.html
+      format.pdf { send_data make_pdf(:template => 'grades/show', :stylesheets => ['application', 'prince']), :filename => "#{@student.name} - #{@assignment.name}", :type => 'application/pdf', :disposition => 'inline' }
+    end
   end
 
   def edit
@@ -59,7 +62,7 @@ class GradesController < ApplicationController
   
   
   def email
-    @gradesheet = render_to_pdf(:show)
+    @gradesheet = make_pdf(:template => 'grades/show', :stylesheets => ['application', 'prince'])
     
     Notifications.deliver_grade_email(@student, @assignment, @gradesheet) if @student && @assignment
     

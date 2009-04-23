@@ -1,0 +1,8 @@
+@page {
+  margin: 10pt;
+  background: white;
+}
+
+html, body, #article {
+  background-color: white;
+}

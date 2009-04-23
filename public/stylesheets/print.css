@@ -1,3 +1,11 @@
+html {
+  background-color: #ffffff;
+}
+
 #header {
+  display: none;
+}
+
+#article .section .footer {
   display: none;
 }

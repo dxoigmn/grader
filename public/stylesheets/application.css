@@ -50,26 +50,6 @@ html {
   background-color: #ffffff;
 }
 
-#article .section:first-child {
-  margin-top: 0;
-}
-
-#article .section {
-  margin: 1em 0 1em 0;
-}
-
-#article .section:last-child {
-  margin-bottom: 0;
-}
-
-#article .section .header {
-  margin-bottom: 1em;
-}
-
-#article .section .footer {
-  margin-top: 1em;
-}
-
 #article h2 {
   font-size: x-large;
   font-weight: bold;
@@ -95,6 +75,33 @@ html {
   text-decoration: none;
 }
 
+#article .section:first-child {
+  padding-top: 0;
+}
+
+#article .section {
+  margin: 1em 0 1em 0;
+}
+
+#article .section:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+#article .section .footer li {
+  display: inline;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+  margin-right: 0.5em;
+  background-color: #e0e0e0;
+  border: 1px solid #000000;
+  font-size: small;
+  font-weight: bold;
+}
+
+#article .section .content {
+  margin: 1em 0 1em 0;
+}
+
 #article .section .content ul {
   margin-left: 1em;
 }
@@ -102,19 +109,62 @@ html {
 #article .section .content ul li {
   list-style-position: inside;
   list-style-type: disc;
+  padding: 0.15em;
+}
+
+#article .section .content form {
+  margin-left: 1em;
+}
+
+#article .section .content form dl {
+  margin-left: 0;
+}
+
+#article .section .content form dt {
+  float: none;
+  font-size: medium;
+  color: #000000;
+  width: auto;
+  text-align: left;
+  padding: 0.5em 0 0.5em 0;
+  font-weight: bold;
+}
+
+#article .section .content form dd {
+  margin: 0;
+  padding: 0 0 1em 0;
+  font-weight: normal;
 }
 
 #article .section .content dl {
-  margin: 1em 0 1em 0;
+  margin-left: 1em;
 }
 
 #article .section .content dt {
+  float: left;
+  clear: left;
+  width: 12em;
+  text-align: right;
+  color: #666666;
+  font-size: small;
+}
+
+#article .section .content dd {
+  margin: 0 0 0 10.5em;
+  padding: 0 0 0.5em 0;
   font-weight: bold;
-  margin: 1em 0 0.25em 0;
+}
+
+#article .section .content p:first-child {
+  margin-top: 0;
 }
 
 #article .section .content p {
   margin: 1em 0 1em 0;
+}
+
+#article .section .content p:last-child {
+  margin-bottom: 0;
 }
 
 #article .section .content td {
@@ -124,4 +174,12 @@ html {
 
 #article .section .content hr {
   border: 1px solid #e0e0e0;
+}
+
+div.help {
+  margin: 0.5em 0 0.5em 0;
+}
+
+div.partial {
+  background-color: #ffdddd;
 }

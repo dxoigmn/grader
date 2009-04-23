@@ -5,6 +5,7 @@ class Notifications < ActionMailer::Base
     from        "Cory T. Cornelius <Cory.T.Cornelius@dartmouth.edu>"
     body        :assignment => assignment
     attachment  "application/pdf" do |pdf|
+      pdf.filename = "#{student.name} - #{assignment.name}.pdf"
       pdf.body = gradesheet
     end
   end

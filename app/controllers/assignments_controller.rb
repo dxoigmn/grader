@@ -16,7 +16,8 @@ class AssignmentsController < ApplicationController
 
   def show
     @assignment = Assignment.find(params[:id])
-
+    @grade_statistics = @assignment.grades.to_statarray
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @assignment }

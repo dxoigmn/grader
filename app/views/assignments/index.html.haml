@@ -7,4 +7,5 @@
       - @assignments.each do |assignment|
         %li= link_to(assignment.name, assignment)
   .footer
-    = link_to('Add Assignment', new_assignment_path)
+    %ul
+      %li= link_to('Add Assignment', new_assignment_path)
