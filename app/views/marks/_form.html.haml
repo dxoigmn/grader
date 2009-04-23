@@ -1,4 +1,4 @@
-- form_for(grade, :url => student_assignment_criterion_grade_path(student, assignment, criterion)) do |form|
+- form_for(mark, :url => student_assignment_criterion_mark_path(student, assignment, criterion)) do |form|
   
   .errors= form.error_messages
   
@@ -16,4 +16,4 @@
     %dd= form.text_area(:comment, :rows => 5)
   
   
-  = form.submit(grade.new_record? ? 'Create' : 'Update')
+  = form.submit(mark.new_record? ? 'Create' : 'Update')

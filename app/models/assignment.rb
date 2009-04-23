@@ -1,7 +1,7 @@
 class Assignment < ActiveRecord::Base
   has_many :criteria
-  has_many :grades
-  has_many :students, :through => :grades, :uniq => true, :group => 'grades.student_id', :order => 'sum(grades.value) DESC'
+  has_many :marks
+  has_many :students, :through => :marks, :uniq => true, :group => 'marks.student_id', :order => 'sum(marks.value) DESC'
   
   def points
     criteria.sum(:points)

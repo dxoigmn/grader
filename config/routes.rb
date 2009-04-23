@@ -5,9 +5,9 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :students do |students|
     students.resources :assignments, :only => :show do |assignments|
-      assignments.resource :grade, :only => :show, :member => { :email => :get }
+      assignments.resource :mark, :only => :show, :member => { :email => :get }
       assignments.resources :criteria, :only => :none do |criteria|
-        criteria.resource :grade, :only => [:edit, :update, :create]
+        criteria.resource :mark, :only => [:edit, :update, :create]
       end
     end
   end
