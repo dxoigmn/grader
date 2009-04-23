@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class GradesHelperTest < ActionView::TestCase
+class MarksHelperTest < ActionView::TestCase
 end

@@ -1,10 +1,10 @@
 require 'test_helper'
 
-class GradesControllerTest < ActionController::TestCase
+class MarksControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:grades)
+    assert_not_nil assigns(:marks)
   end
 
   test "should get new" do
@@ -12,34 +12,34 @@ class GradesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create grade" do
-    assert_difference('Grade.count') do
-      post :create, :grade => { }
+  test "should create mark" do
+    assert_difference('Mark.count') do
+      post :create, :mark => { }
     end
 
-    assert_redirected_to grade_path(assigns(:grade))
+    assert_redirected_to mark_path(assigns(:mark))
   end
 
-  test "should show grade" do
-    get :show, :id => grades(:one).to_param
+  test "should show mark" do
+    get :show, :id => marks(:one).to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => grades(:one).to_param
+    get :edit, :id => marks(:one).to_param
     assert_response :success
   end
 
-  test "should update grade" do
-    put :update, :id => grades(:one).to_param, :grade => { }
-    assert_redirected_to grade_path(assigns(:grade))
+  test "should update mark" do
+    put :update, :id => marks(:one).to_param, :mark => { }
+    assert_redirected_to mark_path(assigns(:mark))
   end
 
-  test "should destroy grade" do
-    assert_difference('Grade.count', -1) do
-      delete :destroy, :id => grades(:one).to_param
+  test "should destroy mark" do
+    assert_difference('Mark.count', -1) do
+      delete :destroy, :id => marks(:one).to_param
     end
 
-    assert_redirected_to grades_path
+    assert_redirected_to marks_path
   end
 end
