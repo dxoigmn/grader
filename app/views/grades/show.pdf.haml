@@ -1,0 +1,19 @@
+.section
+  .header
+    %h2= @grade.student.name
+    %h3= @grade.assignment.name
+
+= render :partial => 'grades/mark', :collection => @grade.marks
+
+.section
+  .header
+    %h4= 'Overall'
+
+  .content
+    %dl
+      %dt= 'Comments'
+      %dd= markdown(@grade.comment)
+    
+      %dt= 'Total Points'
+      %dd=h @grade.points
+

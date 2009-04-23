@@ -1,0 +1,13 @@
+.section{:class => mark.full_credit? ? 'full' : 'partial'}
+  .header
+    %h4=h mark.criterion.title
+    
+  .content
+    .help=h mark.criterion.help
+
+    %dl
+      %dt=h 'Points'
+      %dd=h mark.points
+
+      %dt=h 'Comment'
+      %dd= markdown(mark.comment)

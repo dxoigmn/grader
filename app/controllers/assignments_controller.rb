@@ -1,10 +1,4 @@
 class AssignmentsController < ApplicationController
-  before_filter :get_student
-
-  def get_student
-    @student = Student.find(params[:student_id]) rescue nil
-  end
-  
   def index
     @assignments = Assignment.all
 
@@ -16,7 +10,7 @@ class AssignmentsController < ApplicationController
 
   def show
     @assignment = Assignment.find(params[:id])
-    @grade_statistics = @assignment.grades.to_statarray
+    @grade_statistics = @assignment.grades.map { |grade| grade.value }.to_statarray
     
     respond_to do |format|
       format.html # show.html.erb

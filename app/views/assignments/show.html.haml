@@ -1,59 +1,38 @@
 .section
   .header
-    - if @student
-      %h2= link_to(@student.name, @student)
-      %h3=h @assignment.name
-  
-    - else
-      %h2=h @assignment.name
+    %h2=h @assignment.name
   
   .content
     %dl
       %dt= 'Total Points'
-      %dd=h @student ? @student.formatted_grade(@assignment) : @assignment.points
+      %dd=h @assignment.worth
 
-      - unless @student
-        %dt= 'Maximum Grade'
-        %dd= @grade_statistics.max
+      %dt= 'Maximum Grade'
+      %dd= @grade_statistics.max
 
-        %dt= 'Median Grade'
-        %dd= @grade_statistics.median
+      %dt= 'Median Grade'
+      %dd= @grade_statistics.median
 
-        %dt= 'Minimum Grade'
-        %dd= @grade_statistics.min
+      %dt= 'Minimum Grade'
+      %dd= @grade_statistics.min
 
-        %dt= 'Mean Grade'
-        %dd= @grade_statistics.mean
+      %dt= 'Mean Grade'
+      %dd= @grade_statistics.mean
 
-        %dt= 'Grade Standard Deviation'
-        %dd= @grade_statistics.stddev
+      %dt= 'Grade Standard Deviation'
+      %dd= @grade_statistics.stddev
       
   .footer
     %ul
       %li= link_to('Edit', edit_assignment_path(@assignment))
       %li= link_to('Delete', assignment_path(@assignment), :confirm => 'Are you sure?', :method => :delete)
+      %li= link_to('Criteria', assignment_criteria_path(@assignment))
 
 .section
   .header
-    %h3= 'Criteria'
-
+    %h3= 'Student Grades'
+  
   .content
-    = render('criteria/list', :student => @student, :assignment => @assignment, :criteria => @assignment.criteria)
-
-  .footer
     %ul
-      %li= link_to('Add Criterion', new_assignment_criterion_path(@assignment))
-
-      - if @student
-        %li= link_to('Grading Sheet', student_assignment_mark_path(@student, @assignment))
-        %li= link_to('Send Email', email_student_assignment_mark_path(@student, @assignment), :confirm => 'Are you sure?')
-
-- unless @student
-  .section
-    .header
-      %h3= 'Student Grades'
-    
-    .content
-      %ul
-        - @assignment.students.each do |student|
-          %li= link_to(student.name, student_assignment_path(student, @assignment)) + " (#{student.grade(@assignment)} points)"
+      - @assignment.grades.each do |grade|
+        %li= link_to(grade.student.name, grade.student) + " (#{grade.points} points)"

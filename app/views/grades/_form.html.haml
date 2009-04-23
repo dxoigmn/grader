@@ -1,0 +1,13 @@
+.section
+  .header
+    %h4=h form.object.criterion.title
+
+  .content
+    .help=h form.object.criterion.help
+
+    %dl
+      %dt= form.label(:value)
+      %dd= form.text_field(:value)
+
+      %dt= form.label(:comment)
+      %dd= form.text_area(:comment, :rows => 5)

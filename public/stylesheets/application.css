@@ -1,6 +1,7 @@
 html {
   font-family: Helvetica, Verdana, Arial, sans-serif;
   background-color: #e0e0e0;
+  font-size: 1em;
 }
 
 #header {
@@ -9,7 +10,7 @@ html {
 }
 
 #header h1 {
-  font-size: xx-large;
+  font-size: 2em;
   color: #ffffff;
   padding: 0.5em 0 0.5em 0;
 }
@@ -27,7 +28,6 @@ html {
   display: inline;
   color: #ffffff;
   padding: 0.5em 1em 0.5em 1em;
-  font-size: medium;
 }
 
 #nav ul li a {
@@ -50,23 +50,28 @@ html {
   background-color: #ffffff;
 }
 
+#article h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
 #article h2 {
-  font-size: x-large;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 #article h3 {
-  font-size: large;
+  font-size: 1.25em;
   font-weight: bold;
 }
 
 #article h4 {
-  font-size: medium;
+  font-size: 1em;
   font-weight: bold;
 }
 
 #article h5 {
-  font-size: small;
+  font-size: 0.5em;
   font-weight: bold;
 }
 
@@ -76,7 +81,7 @@ html {
 }
 
 #article .section:first-child {
-  padding-top: 0;
+  margin-top: 0;
 }
 
 #article .section {
@@ -84,7 +89,7 @@ html {
 }
 
 #article .section:last-child {
-  padding-bottom: 0;
+  margin-bottom: 0;
   border-bottom: none;
 }
 
@@ -94,7 +99,7 @@ html {
   margin-right: 0.5em;
   background-color: #e0e0e0;
   border: 1px solid #000000;
-  font-size: small;
+  font-size: 0.75em;
   font-weight: bold;
 }
 
@@ -112,17 +117,13 @@ html {
   padding: 0.15em;
 }
 
-#article .section .content form {
-  margin-left: 1em;
-}
-
 #article .section .content form dl {
   margin-left: 0;
 }
 
 #article .section .content form dt {
   float: none;
-  font-size: medium;
+  font-size: 1em;
   color: #000000;
   width: auto;
   text-align: left;
@@ -146,13 +147,17 @@ html {
   width: 12em;
   text-align: right;
   color: #666666;
-  font-size: small;
+  font-size: 1em;
 }
 
 #article .section .content dd {
-  margin: 0 0 0 10.5em;
+  margin: 0 0 0 13em;
   padding: 0 0 0.5em 0;
   font-weight: bold;
+}
+
+#article .section .content dd:last-child {
+  padding: 0;
 }
 
 #article .section .content p:first-child {
@@ -182,4 +187,25 @@ div.help {
 
 div.partial {
   background-color: #ffdddd;
+}
+
+div.flash {
+  margin: 1em;
+  padding: 0.5em;
+  color: #333333;
+}
+
+div.flash#notice {
+  background-color: #bbffb6;
+  border: 1px solid #1fdf00;
+}
+
+div.flash#error {
+  background-color: #ffdddd;
+  border: 1px solid #ffbbbb;
+}
+
+div.flash#warning {
+  background-color: #ffffcc;
+  border: 1px solid #fffaaa;
 }

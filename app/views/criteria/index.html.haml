@@ -1,0 +1,11 @@
+.section
+  .header
+    %h2= link_to(@assignment.name, @assignment)
+    %h3= 'Criteria'
+
+  .content
+    = render('criteria/list', :assignment => @assignment, :criteria => @assignment.criteria)
+
+  .footer
+    %ul
+      %li= link_to('Add Criterion', new_assignment_criterion_path(@assignment))

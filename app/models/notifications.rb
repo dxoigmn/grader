@@ -1,11 +1,11 @@
 class Notifications < ActionMailer::Base
-  def grade_email(student, assignment, gradesheet)
-    subject     "#{assignment.name} grade"
-    recipients  student.email
+  def grade_email(grade, gradesheet)
+    subject     "#{grade.assignment.name} grade"
+    recipients  grade.student.email
     from        "Cory T. Cornelius <Cory.T.Cornelius@dartmouth.edu>"
-    body        :assignment => assignment
+    body        :assignment => grade.assignment
     attachment  "application/pdf" do |pdf|
-      pdf.filename = "#{student.name} - #{assignment.name}.pdf"
+      pdf.filename = "#{grade.student.name} - #{grade.assignment.name}.pdf"
       pdf.body = gradesheet
     end
   end

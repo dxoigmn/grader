@@ -1,12 +1,13 @@
 .section
   .header
     %h2= link_to(@assignment.name, @assignment)
-    %h3=h @criterion.title
+    %h3= link_to('Criteria', assignment_criteria_path(@assignment))
+    %h4=h @criterion.title
   
   .content
     %dl
-      %dt= 'Points'
-      %dd=h @criterion.points
+      %dt= 'Worth'
+      %dd=h "#{@criterion.worth} points"
   
       %dt= 'Help'
       %dd=h @criterion.help

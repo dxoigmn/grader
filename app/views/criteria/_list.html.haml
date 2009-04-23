@@ -1,6 +1,3 @@
 %ul
   - criteria.each do |criterion|
-    - if student
-      %li= link_to(criterion.title, edit_student_assignment_criterion_mark_path(student, assignment, criterion)) + " (#{student.formatted_grade(criterion)} points)"
-    - else
-      %li= link_to(criterion.title, [student, assignment, criterion]) + " (#{criterion.points} points)"
+    %li= link_to(criterion.title, [assignment, criterion]) + " (#{criterion.worth} points)"

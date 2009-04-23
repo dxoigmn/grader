@@ -10,7 +10,6 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
-    @assignments = Assignment.all
 
     respond_to do |format|
       format.html # show.html.erb

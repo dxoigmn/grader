@@ -1,0 +1,15 @@
+.section
+  .header
+    %h2= link_to(@grade.student.name, @grade.student)
+    %h3= link_to(@grade.assignment.name, @grade.assignment)
+
+- form_for(@grade) do |grade_form|
+  - grade_form.fields_for(:marks) do |mark_form|
+    = render('grades/form', :form => mark_form)
+  
+  %dl.form
+    %dt= grade_form.label(:comment)
+    %dd= grade_form.text_area(:comment, :rows => 5)
+  
+  .footer
+    = grade_form.submit('Grade')

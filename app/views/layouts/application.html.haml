@@ -15,6 +15,10 @@
         %ul
           = nav_link(:students)
           = nav_link(:assignments)
+          = nav_link(:grades)
+
+    - for key, value in flash
+      .flash{ :id=> key }= value
 
     #article
       = yield

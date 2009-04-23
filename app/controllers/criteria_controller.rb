@@ -1,11 +1,6 @@
 class CriteriaController < ApplicationController
-  before_filter :get_student
   before_filter :get_assignment
 
-  def get_student
-    @student = Student.find(params[:student_id]) rescue nil
-  end
-  
   def get_assignment
     @assignment = Assignment.find(params[:assignment_id])
   end

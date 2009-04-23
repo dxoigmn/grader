@@ -1,0 +1,25 @@
+.section
+  .header
+    %h2= link_to(@grade.student.name, @grade.student)
+    %h3= link_to(@grade.assignment.name, @grade.assignment)
+
+= render :partial => 'grades/mark', :collection => @grade.marks
+
+.section
+  .header
+    %h4= 'Overall'
+    
+  .content
+    %dl
+      %dt= 'Comment'
+      %dd= markdown(@grade.comment)
+      
+      %dt= 'Total Points'
+      %dd=h @grade.points
+      
+  .footer
+    %ul
+      %li= link_to('Edit', edit_grade_path(@grade))
+      %li= link_to('Email', email_grade_path(@grade), :confirm => 'Are you sure?')
+      
+
