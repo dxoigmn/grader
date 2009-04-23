@@ -1,7 +1,7 @@
 class GradesController < ApplicationController
   before_filter :get_student
   before_filter :get_assignment
-  before_filter :get_question
+  before_filter :get_criterion
 
   def get_student
     @student = Student.find(params[:student_id]) rescue nil
@@ -11,8 +11,8 @@ class GradesController < ApplicationController
     @assignment = Assignment.find(params[:assignment_id]) rescue nil
   end
   
-  def get_question
-    @question = Question.find(params[:question_id]) rescue nil
+  def get_criterion
+    @criterion = Criterion.find(params[:criterion_id]) rescue nil
   end
 
   def show
@@ -23,7 +23,7 @@ class GradesController < ApplicationController
   end
 
   def edit
-    @grade = Grade.first(:conditions => { :student_id => @student.id, :assignment_id => @assignment.id, :question_id => @question.id })
+    @grade = Grade.first(:conditions => { :student_id => @student.id, :assignment_id => @assignment.id, :criterion_id => @criterion.id })
     @grade ||= Grade.new
   end
 
@@ -31,7 +31,7 @@ class GradesController < ApplicationController
     @grade = Grade.new(params[:grade])
     @grade.student    = @student
     @grade.assignment = @assignment
-    @grade.question   = @question
+    @grade.criterion  = @criterion
 
     respond_to do |format|
       if @grade.save
@@ -46,7 +46,7 @@ class GradesController < ApplicationController
   end
 
   def update
-    @grade = Grade.first(:conditions => { :student_id => @student.id, :assignment_id => @assignment.id, :question_id => @question.id })
+    @grade = Grade.first(:conditions => { :student_id => @student.id, :assignment_id => @assignment.id, :criterion_id => @criterion.id })
 
     respond_to do |format|
       if @grade.update_attributes(params[:grade])

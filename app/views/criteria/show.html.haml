@@ -1,0 +1,17 @@
+.section
+  .header
+    %h2= link_to(@assignment.name, @assignment)
+    %h3=h @criterion.title
+  
+  .content
+    %dl
+      %dt= 'Points'
+      %dd=h @criterion.points
+  
+      %dt= 'Help'
+      %dd=h @criterion.help
+
+  .footer
+    %ul
+      %li= link_to('Edit', edit_assignment_criterion_path(@assignment, @criterion))
+      %li= link_to('Delete', assignment_criterion_path(@assignment, @criterion), :confirm => 'Are you sure?', :method => :delete)

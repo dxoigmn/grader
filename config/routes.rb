@@ -1,13 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :assignments do |assignments|
-    assignments.resources :questions, :except => :index
+    assignments.resources :criteria, :except => :index
   end
   
   map.resources :students do |students|
     students.resources :assignments, :only => :show do |assignments|
       assignments.resource :grade, :only => :show, :member => { :email => :get }
-      assignments.resources :questions, :only => :none do |questions|
-        questions.resource :grade, :only => [:edit, :update, :create]
+      assignments.resources :criteria, :only => :none do |criteria|
+        criteria.resource :grade, :only => [:edit, :update, :create]
       end
     end
   end

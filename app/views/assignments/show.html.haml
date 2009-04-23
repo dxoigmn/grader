@@ -35,14 +35,14 @@
 
 .section
   .header
-    %h3= 'Questions'
+    %h3= 'Criteria'
 
   .content
-    = render('questions/list', :student => @student, :assignment => @assignment, :questions => @assignment.questions)
+    = render('criteria/list', :student => @student, :assignment => @assignment, :criteria => @assignment.criteria)
 
   .footer
     %ul
-      %li= link_to('Add Question', new_assignment_question_path(@assignment))
+      %li= link_to('Add Criterion', new_assignment_criterion_path(@assignment))
 
       - if @student
         %li= link_to('Grading Sheet', student_assignment_grade_path(@student, @assignment))

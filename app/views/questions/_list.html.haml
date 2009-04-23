@@ -1,6 +1,0 @@
-%ul
-  - questions.each do |question|
-    - if student
-      %li= link_to(question.title, edit_student_assignment_question_grade_path(student, assignment, question)) + " (#{student.formatted_grade(question)} points)"
-    - else
-      %li= link_to(question.title, [student, assignment, question]) + " (#{question.points} points)"

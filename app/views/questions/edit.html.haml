@@ -1,7 +1,0 @@
-.section
-  .header
-    %h2= link_to(@assignment.name, @assignment)
-    %h3= link_to(@question.title, [@assignment, @question])
-  
-  .content
-    = render('questions/form', :assignment => @assignment, :question => @question)

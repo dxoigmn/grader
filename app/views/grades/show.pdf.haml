@@ -3,20 +3,20 @@
     %h1= @student.name
     %h2= @assignment.name
 
-- @assignment.questions.each do |question|
-  .section{:class => @student.grade(question) == question.points ? 'full' : 'partial'}
+- @assignment.criteria.each do |criterion|
+  .section{:class => @student.grade(criterion) == criterion.points ? 'full' : 'partial'}
     .header
-      %h3=h question.title
+      %h3=h criterion.title
       
     .content
-      .help=h question.help
+      .help=h criterion.help
   
       %dl
         %dt= 'Points'
-        %dd= @student.formatted_grade(question)
+        %dd= @student.formatted_grade(criterion)
   
         %dt= 'Comments'
-        %dd= markdown(@student.comment(question))
+        %dd= markdown(@student.comment(criterion))
       
 
 .section

@@ -1,0 +1,7 @@
+.section
+  .header
+    %h2= link_to(@assignment.name, @assignment)
+    %h3= 'New Criterion'
+  
+  .content
+    = render('criteria/form', :assignment => @assignment, :criterion => @criterion)

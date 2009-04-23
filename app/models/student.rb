@@ -8,14 +8,14 @@ class Student < ActiveRecord::Base
   def grade(obj)
     case obj
     when Assignment
-      grades.sum('value', :include => :question, :conditions => { :questions => { :assignment_id => obj.id }})
-    when Question
-      grades.first(:conditions => { :question_id => obj.id }).value rescue 0
+      grades.sum('value', :include => :criterion, :conditions => { :criteria => { :assignment_id => obj.id }})
+    when Criterion
+      grades.first(:conditions => { :criterion_id => obj.id }).value rescue 0
     end
   end
   
-  def comment(question)
-    value = grades.first(:conditions => { :question_id => question.id }).comment.strip rescue ''
+  def comment(criterion)
+    value = grades.first(:conditions => { :criterion_id => criterion.id }).comment.strip rescue ''
     value = '&nbsp;' if value.blank?
     value
   end

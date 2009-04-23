@@ -1,14 +1,14 @@
-- form_for(grade, :url => student_assignment_question_grade_path(student, assignment, question)) do |form|
+- form_for(grade, :url => student_assignment_criterion_grade_path(student, assignment, criterion)) do |form|
   
   .errors= form.error_messages
   
   %table
     %tr
-      - (1..question.points).each do |value|
+      - (1..criterion.points).each do |value|
         %td= form.label("value_#{value}", value)
         
     %tr
-      - (1..question.points).each do |value|
+      - (1..criterion.points).each do |value|
         %td= form.radio_button(:value, value)
   
   %dl
