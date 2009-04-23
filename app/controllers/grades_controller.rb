@@ -62,7 +62,7 @@ class GradesController < ApplicationController
   
   
   def email
-    @gradesheet = make_pdf(:template => 'grades/show', :stylesheets => ['application', 'prince'])
+    @gradesheet = make_pdf(:template => 'grades/show.pdf', :stylesheets => ['application', 'prince'])
     
     Notifications.deliver_grade_email(@student, @assignment, @gradesheet) if @student && @assignment
     
