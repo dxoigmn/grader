@@ -15,6 +15,8 @@ class Student < ActiveRecord::Base
   end
   
   def comment(question)
-    grades.first(:conditions => { :question_id => question.id }).comment.strip rescue ''
+    value = grades.first(:conditions => { :question_id => question.id }).comment.strip rescue ''
+    value = '&nbsp;' if value.blank?
+    value
   end
 end
