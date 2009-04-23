@@ -48,9 +48,4 @@ Rails::Initializer.run do |config|
     :port           => 25,
     :domain         => 'dartmouth.edu'
   }
-  
-  
-  ActiveSupport::Inflector.inflections do |inflect|
-     inflect.irregular 'criterion', 'criteria'
-  end
 end
