@@ -16,4 +16,4 @@
           %td= link_to(student.name, student)
           - student.grades.each do |grade|
             %td= link_to(grade.points, grade)
-          %td= student.grade
+          %td= "%.2f\%" % (student.grade * 100)
