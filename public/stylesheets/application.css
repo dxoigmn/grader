@@ -199,6 +199,10 @@ html {
   font-size: 0.75em;
 }
 
+input.right {
+  text-align: right;
+}
+
 div.help {
   margin: 0.5em 0 0.5em 0;
 }
