@@ -7,7 +7,6 @@ class Mark < ActiveRecord::Base
   end
   
   def full_credit?
-    p self
     value >= criterion.worth
   end
   

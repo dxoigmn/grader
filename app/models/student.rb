@@ -2,9 +2,9 @@ class Student < ActiveRecord::Base
   has_many :grades, :dependent => :destroy
   has_many :assignments, :through => :grades
   
-  after_create do |record|
+  after_create do |student|
     Assignment.all.each do |assignment|
-      Grade.find_or_create_by_student_id_and_assignment_id(record.id, assignment.id).save!
+      Grade.find_or_create_by_student_id_and_assignment_id(student.id, assignment.id).save!
     end
   end
   
