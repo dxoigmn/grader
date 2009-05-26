@@ -10,6 +10,6 @@
     %dd= form.text_field(:worth)
     
     %dt= form.label(:help)
-    %dd= form.text_area(:help, :rows => 5)
+    %dd= form.text_area(:help, :cols => 80, :rows => 20)
 
   = form.submit(criterion.new_record? ? 'Create' : 'Update')

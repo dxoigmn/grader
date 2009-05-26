@@ -9,7 +9,7 @@
   
   %dl.form
     %dt= grade_form.label(:comment)
-    %dd= grade_form.text_area(:comment, :rows => 5)
+    %dd= grade_form.text_area(:comment, :cols => 80, :rows => 20)
   
   .footer
     = grade_form.submit('Grade')
