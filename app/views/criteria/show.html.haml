@@ -10,7 +10,7 @@
       %dd=h "#{@criterion.worth} points"
   
       %dt= 'Help'
-      %dd=h @criterion.help
+      %dd= markdown(@criterion.help)
 
   .footer
     %ul
