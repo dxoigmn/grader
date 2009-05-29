@@ -6,6 +6,9 @@
     %dl
       %dt= 'Total Points'
       %dd=h @assignment.worth
+      
+      %dt= 'Number of Grades'
+      %dd= @grade_statistics.count
 
       %dt= 'Maximum Grade'
       %dd= @grade_statistics.max

@@ -10,7 +10,7 @@ class AssignmentsController < ApplicationController
 
   def show
     @assignment = Assignment.find(params[:id])
-    @grade_statistics = @assignment.grades.map { |grade| grade.value }.to_statarray
+    @grade_statistics = @assignment.grades.map { |grade| grade.value }.delete_if { |grade| grade == 0 }.to_statarray
     
     respond_to do |format|
       format.html # show.html.erb
