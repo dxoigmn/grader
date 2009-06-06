@@ -1,7 +1,8 @@
 .section
   .header
     %h2= link_to(@assignment.name, @assignment)
-    %h3= link_to(@criterion.title, [@assignment, @criterion])
+    %h3= link_to('Criteria', assignment_criteria_path(@assignment))
+    %h4= link_to(@criterion.title, [@assignment, @criterion])
   
   .content
     = render('criteria/form', :assignment => @assignment, :criterion => @criterion)
