@@ -23,6 +23,10 @@ class Grade < ActiveRecord::Base
     "#{value} / #{assignment.worth}"
   end
   
+  def grade
+    value.to_f / assignment.worth.to_f
+  end
+  
   def comment
     return "&nbsp;" if read_attribute(:comment).blank?
     read_attribute(:comment)
