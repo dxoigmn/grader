@@ -199,6 +199,10 @@ html {
   font-size: 0.75em;
 }
 
+#article .section .content table thead tr td a {
+  color: #ffffff;
+}
+
 input.right {
   text-align: right;
 }

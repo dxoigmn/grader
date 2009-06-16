@@ -7,9 +7,9 @@
       %colgroupappl
       %thead
         %tr
-          %td= 'Name'
+          %td= link_to('Student', students_url)
           - @assignments.each do |assignment|
-            %td= assignment.name
+            %td= link_to(assignment.name, assignment)
           %td= 'Total'
       - @students.each do |student|
         %tr
